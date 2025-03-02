@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "");
+	char answer, poundSymb = 156;
+	int pounds, shillings, pennies, pounds2, shillings2, pennies2;
+	do
+	{
+		cout << "Введите первую сумму: " << poundSymb;
+		cin >> pounds >> shillings >> pennies;
+		cout << "Введите вторую сумму: " << poundSymb;
+		cin >> pounds2 >> shillings2 >> pennies2;
+		pennies += pennies2;
+		shillings += shillings2 + pennies / 12;
+		pennies %= 12;
+		pounds += pounds2 + shillings / 20;
+		shillings %= 20;
+		cout << "Всего " << poundSymb << pounds <<
+			' ' << shillings << ' ' << pennies << endl;
+		cout << "Продолжить (y/n)?n";
+		cin >> answer;
+	} while (answer != 'n');
+}
