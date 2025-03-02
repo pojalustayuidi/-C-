@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;    
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float cost, bet, deposit, mouth, payment, sum;
+	int years;
+	sum = 0;
+	cout << "Ввдите стоимость квартиры:  ";
+	cin >> cost;
+	cout << "Введите начальный взнос:  ";
+	cin >> deposit;
+	cout << "Число лет:  ";
+	cin >> years;
+	cout << "Введите процентную ставку:  ";
+	cin >> bet;
+	cost -= deposit;
+	mouth = cost / years;
+	bet /= 100;
+	for (int i = 0; i < years; i++)
+	{
+		payment = cost * (1 + bet) - (cost - mouth);
+		cost -= mouth;
+		sum += payment;
+		cout << i + 1 << "-й платеж составит " << payment << endl;
+	}
+	cout << "Общая сумма выплат составила " << sum;
